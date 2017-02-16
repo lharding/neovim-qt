@@ -207,6 +207,7 @@ void Shell::neovimError(NeovimConnector::NeovimError err)
 void Shell::neovimExited(int status)
 {
 	setAttached(false);
+	qDebug() << "Neovim exited" << status << m_nvim->errorCause();
 	if (status == 0 && m_nvim->errorCause() == NeovimConnector::NoError) {
 		close();
 	}
