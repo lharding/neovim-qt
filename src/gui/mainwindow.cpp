@@ -62,6 +62,7 @@ void MainWindow::neovimExited(int status)
 {
 	showIfDelayed();
 
+	qDebug() << "Neovim exited" << status << m_nvim->errorCause();
 	if (m_nvim->errorCause() != NeovimConnector::NoError) {
 		m_errorWidget->setText(m_nvim->errorString());
 		m_errorWidget->showReconnect(m_nvim->canReconnect());
