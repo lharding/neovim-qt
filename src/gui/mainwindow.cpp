@@ -8,6 +8,7 @@ MainWindow::MainWindow(NeovimConnector *c, QWidget *parent)
 :QMainWindow(parent), m_nvim(0), m_errorWidget(0), m_shell(0),
 	m_delayedShow(DelayedShow::Disabled)
 {
+        
 	m_errorWidget = new ErrorWidget();
 	m_stack.addWidget(m_errorWidget);
 	connect(m_errorWidget, &ErrorWidget::reconnectNeovim,
@@ -94,7 +95,7 @@ void MainWindow::neovimSetTitle(const QString &title)
 	this->setWindowTitle(title);
 }
 
-void MainWindow::neovimWidgetResized()
+void MaijnWindow::neovimWidgetResized()
 {
 	if (isMaximized() || isFullScreen()) {
 		m_shell->resizeNeovim(geometry().size());
